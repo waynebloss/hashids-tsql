@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Hashids.tsql</Name>
+    <Name>HashidsTsql</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{d69afc90-c720-415d-8fba-39b5473ccacd}</ProjectGuid>
@@ -12,8 +12,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Hashids.tsql</RootNamespace>
-    <AssemblyName>Hashids.tsql</AssemblyName>
+    <RootNamespace>HashidsTsql</RootNamespace>
+    <AssemblyName>HashidsTsql</AssemblyName>
     <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -67,14 +67,15 @@
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
     <Folder Include="tests" />
+    <Folder Include="Security" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="hashids.sql" />
     <Build Include="hashids\Functions\IsNullOrWhitespace.sql" />
     <Build Include="hashids\Functions\ConsistentShuffle.sql" />
     <Build Include="hashids\Functions\EncodeId.sql" />
     <Build Include="hashids\Functions\Hash.sql" />
     <Build Include="dbo\Tables\TestComputed.sql" />
+    <Build Include="Security\hashids.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Hashids.tsql", "Hashids.tsql\Hashids.tsql.sqlproj", "{D69AFC90-C720-415D-8FBA-39B5473CCACD}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HashidsTsql", "db\mssql\HashidsTsql.sqlproj", "{D69AFC90-C720-415D-8FBA-39B5473CCACD}"
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "hashids-tsql", "hashids-tsql\hashids-tsql.njsproj", "{B2B57EBE-5DF5-45E3-A191-8381BBADED22}"
 EndProject
