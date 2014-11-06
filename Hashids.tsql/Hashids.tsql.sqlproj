@@ -66,6 +66,7 @@
     <Folder Include="hashids\Functions" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="tests" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="hashids.sql" />
@@ -78,5 +79,6 @@
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
     <None Include="CompareSchema\LocalhostToProject.scmp" />
+    <None Include="tests\testComputed.sql" />
   </ItemGroup>
 </Project>
