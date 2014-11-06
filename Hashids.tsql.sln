@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Hashids.tsql", "Hashids.tsql\Hashids.tsql.sqlproj", "{D69AFC90-C720-415D-8FBA-39B5473CCACD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69AFC90-C720-415D-8FBA-39B5473CCACD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
