@@ -7,7 +7,8 @@ RETURNS varchar(255)
 AS
 BEGIN
 	
-	IF [hashids].[IsNullOrWhitespace](@salt) = 1 BEGIN
+	-- IsNullorWhitespace?
+	IF @salt IS NULL OR LEN(LTRIM(RTRIM(@salt))) = 0 BEGIN
 		RETURN @alphabet;
 	END
 
