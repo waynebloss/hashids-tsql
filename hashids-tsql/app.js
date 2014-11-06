@@ -1,6 +1,8 @@
 ﻿var Hashids = require('hashids');
 var hashids = new Hashids('CE6E160F053C41518582EA36CE9383D5');
 
+// #region Setup
+
 //var key, value;
 //for (key in hashids) {
 //  value = hashids[key];
@@ -22,4 +24,40 @@ minHashLength: 0
 salt: CE6E160F053C41518582EA36CE9383D5
 guards: 49JY
 shuffled alphabet: gGW9SqRvLh7NfuHdKi5XlCjpTo2Zs1JnM40wcIVQ3e8xzOaYUFBE6bryDtPkAm
- */
+*/
+
+// #endregion
+
+// #region Hash
+
+//var testHashResult = hashids.hash(1, 'NxBvP0nK7QgWmejLzwdA6apRV25lkOqo8MX1ZrbyGDE3');
+//console.log('testHashResult: ' + testHashResult.toString());
+/*
+testHashResult: x
+*/
+
+// #endregion
+
+// #region Basic functionality
+
+//var 
+//  id = hashids.encode(1),
+//  numbers = hashids.decode(id);
+//console.log(id);
+//console.log(numbers);
+/*
+xm
+[ 1 ]
+*/
+
+//var 
+//  id = hashids.encode(1, 2, 3),
+//  numbers = hashids.decode(id);
+//console.log(id);
+//console.log(numbers);
+/*
+nBueHb
+[ 1, 2, 3 ]
+*/
+
+// #endregion
