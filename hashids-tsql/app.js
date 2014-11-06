@@ -40,24 +40,31 @@ testHashResult: x
 
 // #region Basic functionality
 
-//var 
-//  id = hashids.encode(1),
-//  numbers = hashids.decode(id);
+//var id, numbers;
+//id = hashids.encode(1);
 //console.log(id);
+//numbers = hashids.decode(id);
 //console.log(numbers);
 /*
 xm
 [ 1 ]
 */
 
-//var 
-//  id = hashids.encode(1, 2, 3),
-//  numbers = hashids.decode(id);
+//var id, numbers;
+//id = hashids.encode(1, 2, 3);
 //console.log(id);
+//numbers = hashids.decode(id);
 //console.log(numbers);
 /*
 nBueHb
 [ 1, 2, 3 ]
 */
+
+var i, id, numbers = [1, 2, 3];
+
+for (i = 0; i < numbers.length; i++) {
+  id = hashids.encode(numbers[i]);
+  console.log(id);
+}
 
 // #endregion

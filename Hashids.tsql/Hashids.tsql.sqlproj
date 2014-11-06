@@ -69,7 +69,7 @@
     <Build Include="hashids.sql" />
     <Build Include="hashids\Functions\IsNullOrWhitespace.sql" />
     <Build Include="hashids\Functions\ConsistentShuffle.sql" />
-    <Build Include="hashids\Functions\Encode.sql" />
+    <Build Include="hashids\Functions\EncodeId.sql" />
     <Build Include="hashids\Functions\Hash.sql" />
   </ItemGroup>
   <ItemGroup>
