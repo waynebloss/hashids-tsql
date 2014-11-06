@@ -69,7 +69,6 @@
     <Build Include="hashids.sql" />
     <Build Include="hashids\Functions\IsNullOrWhitespace.sql" />
     <Build Include="hashids\Functions\ConsistentShuffle.sql" />
-    <Build Include="hashids\Functions\CreateUniqueAlphabet.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
