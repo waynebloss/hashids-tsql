@@ -3,6 +3,7 @@
 	@number int
 )
 RETURNS varchar(255)
+WITH SCHEMABINDING
 AS
 BEGIN
 	-- Options Data

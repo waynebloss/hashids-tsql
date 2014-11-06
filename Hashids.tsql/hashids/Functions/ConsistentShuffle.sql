@@ -4,6 +4,7 @@
 	@salt varchar(255)
 )
 RETURNS varchar(255)
+WITH SCHEMABINDING
 AS
 BEGIN
 	
