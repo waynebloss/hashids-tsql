@@ -9,7 +9,7 @@
   <TargetModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{d69afc90-c720-415d-8fba-39b5473ccacd}</ProjectGuid>
-      <Name>Hashids.tsql</Name>
+      <Name>HashidsTsql</Name>
     </ProjectBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
@@ -289,6 +289,10 @@
         <Value>True</Value>
       </PropertyElementName>
       <PropertyElementName>
+        <Name>TargetDatabaseName</Name>
+        <Value>HashidsTsql</Value>
+      </PropertyElementName>
+      <PropertyElementName>
         <Name>TargetConnectionString</Name>
         <Value>Integrated Security=True;Pooling=False;Connect Timeout=30</Value>
       </PropertyElementName>
@@ -407,4 +411,16 @@
     <ZoomLevel>100</ZoomLevel>
     <Filter>Equals_Objects,Not_Supported_Deploy</Filter>
   </SchemaCompareViewSettings>
+  <ExcludedSourceElements>
+    <SelectedItem Type="Microsoft.Data.Tools.Schema.Sql.SchemaModel.SqlTable, Microsoft.Data.Tools.Schema.Sql, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>dbo</Name>
+      <Name>TestComputed</Name>
+    </SelectedItem>
+  </ExcludedSourceElements>
+  <ExcludedTargetElements>
+    <SelectedItem Type="Microsoft.Data.Tools.Schema.Sql.SchemaModel.SqlTable, Microsoft.Data.Tools.Schema.Sql, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Name>dbo</Name>
+      <Name>TestComputed</Name>
+    </SelectedItem>
+  </ExcludedTargetElements>
 </SchemaComparison>
