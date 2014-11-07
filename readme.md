@@ -21,7 +21,6 @@ Note: encodeId always has the default minHashLength value of 0.
 
 ## TODO
 
-- Change encodeId to honor minHashLength.
 - Pretty-up the generator code in hashids-tsql/app.js to take options from the command line.
 - Add hashids-tsql generator options for:
     - Salt value.
