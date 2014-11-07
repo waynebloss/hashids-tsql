@@ -3,7 +3,7 @@ var swig = require('swig');
 
 var salt = 'CE6E160F053C41518582EA36CE9383D5';
 
-var hashids = new Hashids(salt, 4);
+var hashids = new Hashids(salt, 6);
 
 // #region Render TSQL
 
@@ -24,12 +24,12 @@ var hashids = new Hashids(salt, 4);
 
 // #region Setup
 
-//var key, value;
-//for (key in hashids) {
-//  value = hashids[key];
-//  if (typeof value !== 'function')
-//    console.log(key + ': ' + value);
-//}
+var key, value;
+for (key in hashids) {
+  value = hashids[key];
+  if (typeof value !== 'function')
+    console.log(key + ': ' + value);
+}
 //value = hashids.consistentShuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890', 'CE6E160F053C41518582EA36CE9383D5');
 //console.log('shuffled alphabet: ' + value);
 /*
