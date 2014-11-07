@@ -2,7 +2,21 @@
 var swig = require('swig');
 
 var salt = 'CE6E160F053C41518582EA36CE9383D5';
+
 var hashids = new Hashids(salt);
+
+var data = {
+  salt: hashids.salt,
+  alphabet: hashids.alphabet,
+  seps: hashids.seps,
+  guards: hashids.guards
+};
+
+swig.renderFile('./templates/tsql/encodeId.swig', data, function(err, output) {
+  if (err)
+    throw err;
+  console.log(output);
+});
 
 // #region Setup
 
@@ -64,18 +78,5 @@ vn
 nBueHb
 [ 1, 2, 3 ]
 */
-
-var data = {
-  salt: hashids.salt,
-  alphabet: hashids.alphabet,
-  seps: hashids.seps,
-  guards: hashids.guards
-};
-
-swig.renderFile('./templates/tsql/encodeId.swig', data, function(err, output) {
-  if (err)
-    throw err;
-  console.log(output);
-});
 
 // #endregion
