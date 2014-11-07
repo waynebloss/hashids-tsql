@@ -3,20 +3,24 @@ var swig = require('swig');
 
 var salt = 'CE6E160F053C41518582EA36CE9383D5';
 
-var hashids = new Hashids(salt);
+var hashids = new Hashids(salt, 4);
 
-var data = {
-  salt: hashids.salt,
-  alphabet: hashids.alphabet,
-  seps: hashids.seps,
-  guards: hashids.guards
-};
+// #region Render TSQL
 
-swig.renderFile('./templates/tsql/encodeId.swig', data, function(err, output) {
-  if (err)
-    throw err;
-  console.log(output);
-});
+//var data = {
+//  salt: hashids.salt,
+//  alphabet: hashids.alphabet,
+//  seps: hashids.seps,
+//  guards: hashids.guards
+//};
+
+//swig.renderFile('./templates/tsql/encodeId.swig', data, function(err, output) {
+//  if (err)
+//    throw err;
+//  console.log(output);
+//});
+
+// #endregion
 
 // #region Setup
 
@@ -57,12 +61,12 @@ testHashResult: x
 
 // #region Basic functionality
 
-//var i, id, numbers = [1, 2, 3];
+var i, id, numbers = [1, 2, 3];
 
-//for (i = 0; i < numbers.length; i++) {
-//  id = hashids.encode(numbers[i]);
-//  console.log(id);
-//}
+for (i = 0; i < numbers.length; i++) {
+  id = hashids.encode(numbers[i]);
+  console.log(id);
+}
 /*
 xm
 BQ
