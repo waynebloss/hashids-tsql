@@ -80,6 +80,7 @@
     <Build Include="dbo\Stored Procedures\testComputedHashDuplicates.sql" />
     <Build Include="dbo\Stored Procedures\seedComputedTestTable.sql" />
     <Build Include="dbo\Stored Procedures\listComputedTestDuplicates.sql" />
+    <Build Include="dbo\Stored Procedures\getComputedTestDuplicateCounts.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />

@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[seedComputedTestTable]
-	@rows int = NULL,
-	@start int = NULL
+	@start int = NULL,
+	@end int = NULL
 AS
 BEGIN
 	
 	SELECT
-		@rows = IsNull(@rows, 10000),
-		@start = IsNull(@start, 1)
+		@start = IsNull(@start, 1),
+		@end = IsNull(@end, 10000);	-- 10,000
 
 	-- Insert new rows into the table.
 	TRUNCATE TABLE [dbo].[ComputedTest]
@@ -15,6 +15,6 @@ BEGIN
 	SELECT 'Item ' + n.ia
 	FROM [dbo].[Number] n
 	WHERE
-		n.i BETWEEN @start AND (@start + @rows - 1)
+		n.i BETWEEN @start AND @end
 
 END
