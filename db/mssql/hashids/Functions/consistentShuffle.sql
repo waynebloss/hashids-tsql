@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[ConsistentShuffle]
+﻿CREATE FUNCTION [hashids].[consistentShuffle]
 (
 	@alphabet varchar(255),
 	@salt varchar(255)

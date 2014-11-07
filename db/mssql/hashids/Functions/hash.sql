@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[Hash]
+﻿CREATE FUNCTION [hashids].[hash]
 (
 	@input int,
 	@alphabet varchar(255)

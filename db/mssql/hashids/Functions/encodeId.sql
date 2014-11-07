@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[EncodeId]
+﻿CREATE FUNCTION [hashids].[encodeId]
 (
 	@number int
 )
@@ -27,10 +27,10 @@ BEGIN
 		@buffer = @lottery + @salt + @alphabet;
 
 	SELECT
-		@alphabet = [hashids].[ConsistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+		@alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
 
 	SELECT
-		@last = [hashids].[Hash](@number, @alphabet),
+		@last = [hashids].[hash](@number, @alphabet),
 		@ret = @ret + @last;
 
 	RETURN @ret;
