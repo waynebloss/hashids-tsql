@@ -1,28 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[testComputedColumns]
-	@rows int = NULL,
-	@start int = NULL
+﻿CREATE PROCEDURE [dbo].[listComputedTestDuplicates]
+	
 AS
 BEGIN
 	
-	SELECT
-		@rows = IsNull(@rows, 10000),
-		@start = IsNull(@start, 1)
-	
-	IF @rows > (SELECT COUNT(*) FROM [dbo].[Number]) BEGIN
-		SELECT 'Not enough rows in table [dbo].[Number].' [Error]
-		RETURN 0;
-	END
-
-	-- Insert new rows into the table.
-	TRUNCATE TABLE [dbo].[ComputedTest]
-
-	INSERT INTO [dbo].[ComputedTest]([Name])
-	SELECT 'Item ' + n.ia
-	FROM [dbo].[Number] n
-	WHERE
-		n.i >= @start AND (n.i + @start) < @rows
-	
-	-- Check for collisions.
 	SELECT
 		t.*,
 		IsNull(csdupe.[Count], 0) as [CaseSensitiveDuplicates],
