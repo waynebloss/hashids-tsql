@@ -74,7 +74,7 @@
     <Build Include="hashids\Functions\consistentShuffle.sql" />
     <Build Include="hashids\Functions\encodeId.sql" />
     <Build Include="hashids\Functions\hash.sql" />
-    <Build Include="dbo\Tables\TestComputed.sql" />
+    <Build Include="dbo\Tables\ComputedTest.sql" />
     <Build Include="Security\hashids.sql" />
     <Build Include="dbo\Tables\Number.sql" />
     <Build Include="dbo\Stored Procedures\seedNumberTable.sql" />
