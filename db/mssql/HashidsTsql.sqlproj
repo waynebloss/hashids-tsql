@@ -66,7 +66,6 @@
     <Folder Include="hashids\Functions" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
-    <Folder Include="tests" />
     <Folder Include="Security" />
     <Folder Include="dbo\Stored Procedures\" />
   </ItemGroup>
@@ -78,10 +77,10 @@
     <Build Include="Security\hashids.sql" />
     <Build Include="dbo\Tables\Number.sql" />
     <Build Include="dbo\Stored Procedures\seedNumberTable.sql" />
+    <Build Include="dbo\Stored Procedures\testComputedColumns.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
     <None Include="CompareSchema\LocalhostToProject.scmp" />
-    <None Include="tests\testComputed.sql" />
   </ItemGroup>
 </Project>
