@@ -25,7 +25,8 @@ BEGIN
 	-- Check for collisions.
 	SELECT
 		t.*,
-		csdupe.[Count] as [CaseSensitiveDuplicates]
+		IsNull(csdupe.[Count], 0) as [CaseSensitiveDuplicates],
+		IsNull(cidupe.[Count], 0) as [CaseInsensitiveDuplicates]
 	FROM [dbo].[ComputedTest] t
 	LEFT JOIN (
 		-- Find Case Sensitive Duplicates
@@ -42,7 +43,7 @@ BEGIN
 		HAVING COUNT(*) > 1
 	) cidupe ON t.HashId = cidupe.HashId
 	ORDER BY
-		csdupe.[Count] DESC,
+		IsNull(csdupe.[Count], 0) DESC,
 		t.Id ASC
 
 END
