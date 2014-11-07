@@ -1,5 +1,8 @@
 ﻿var Hashids = require('hashids');
-var hashids = new Hashids('CE6E160F053C41518582EA36CE9383D5');
+var swig = require('swig');
+
+var salt = 'CE6E160F053C41518582EA36CE9383D5';
+var hashids = new Hashids(salt);
 
 // #region Setup
 
@@ -40,14 +43,16 @@ testHashResult: x
 
 // #region Basic functionality
 
-//var id, numbers;
-//id = hashids.encode(1);
-//console.log(id);
-//numbers = hashids.decode(id);
-//console.log(numbers);
+//var i, id, numbers = [1, 2, 3];
+
+//for (i = 0; i < numbers.length; i++) {
+//  id = hashids.encode(numbers[i]);
+//  console.log(id);
+//}
 /*
 xm
-[ 1 ]
+BQ
+vn
 */
 
 //var id, numbers;
@@ -60,11 +65,17 @@ nBueHb
 [ 1, 2, 3 ]
 */
 
-var i, id, numbers = [1, 2, 3];
+var data = {
+  salt: hashids.salt,
+  alphabet: hashids.alphabet,
+  seps: hashids.seps,
+  guards: hashids.guards
+};
 
-for (i = 0; i < numbers.length; i++) {
-  id = hashids.encode(numbers[i]);
-  console.log(id);
-}
+swig.renderFile('./templates/tsql/encodeId.swig', data, function(err, output) {
+  if (err)
+    throw err;
+  console.log(output);
+});
 
 // #endregion

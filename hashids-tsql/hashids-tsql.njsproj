@@ -33,6 +33,11 @@
     <Compile Include="app.js" />
     <Content Include="package.json" />
     <Content Include="readme.md" />
+    <Content Include="templates\tsql\encodeId.swig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="templates\" />
+    <Folder Include="templates\tsql\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
 </Project>
