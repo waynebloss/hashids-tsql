@@ -13,7 +13,7 @@ BEGIN
 		@seps varchar(255) = '{{seps}}',
 		@guards varchar(255) = '{{guards}}',
 		@minHashLength int = {{minHashLength}};
-		-- Starting Alphabet: '{{startingAlphabet}}'
+		-- Input Alphabet: '{{inputAlphabet}}'
 
 	-- Working Data
 	DECLARE

@@ -27,12 +27,17 @@ app
   .option('-x, --fileExt [value]', 'Extension for output files. [' + defv.fileExt + ']', defv.fileExt)
   .parse(process.argv);
 
+// TODO: Error if the destination is a directory (ends in slash) and it doesn't exist.
+
 run();
 
 function run() {
   var data = getHashData();
   var tplFiles = getTemplates();
   var i, output, file;
+  // TODO: Break this loop out into 2 separate functions, 
+  // one for outputting to a directory and the other for a single file.
+  // TODO: When outputting to directory, prefix each file with db.swig.
   for (i = 0; i < tplFiles.length; i++) {
     if (data.directoryName) {
       file = path.basename(tplFiles[i], '.swig');
@@ -52,7 +57,7 @@ function getHashData() {
   var data = {
     database: app.database,
     schema: app.schema,
-    startingAlphabet: app.alphabet,
+    inputAlphabet: app.alphabet,
     salt: hashids.salt,
     alphabet: hashids.alphabet,
     seps: hashids.seps,
