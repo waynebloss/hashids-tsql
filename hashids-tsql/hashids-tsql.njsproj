@@ -35,6 +35,7 @@
     <Content Include="readme.md" />
     <Content Include="templates\tsql\consistentShuffle.swig" />
     <Content Include="templates\tsql\db.swig" />
+    <Content Include="templates\tsql\encode2.swig" />
     <Content Include="templates\tsql\hash.swig" />
     <Content Include="templates\tsql\encode1.swig" />
   </ItemGroup>
