@@ -1,14 +1,14 @@
 ﻿CREATE FUNCTION [hashids].[hash]
 (
 	@input int,
-	@alphabet varchar(255)
+	@alphabet nvarchar(255)
 )
-RETURNS varchar(255)
+RETURNS nvarchar(255)
 WITH SCHEMABINDING
 AS
 BEGIN
 	DECLARE
-		@hash varchar(255) = '',
+		@hash nvarchar(255) = N'',
 		@alphabetLength int = LEN(@alphabet),
 		@pos int;
 

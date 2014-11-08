@@ -34,7 +34,6 @@ because typically, you don't want to construct a table variable just to pass 1 o
    
 ## TODO
 
-- Flip existing functions to return `nvarchar`.
 - Rename functions to follow new pattern: `encode1,2,3,Split,Table ... encode1A,2A,3A,SplitA,TableA` where the functions ending in A return `varchar`.
 - Create `encode2` which encodes 2 numbers, so that each table can have it's own unique set of hashes.
 - Create `encode-A` functions that return `varchar` instead of `nvarchar`.

@@ -1,9 +1,9 @@
 ﻿CREATE FUNCTION [hashids].[consistentShuffle]
 (
-	@alphabet varchar(255),
-	@salt varchar(255)
+	@alphabet nvarchar(255),
+	@salt nvarchar(255)
 )
-RETURNS varchar(255)
+RETURNS nvarchar(255)
 WITH SCHEMABINDING
 AS
 BEGIN
@@ -25,7 +25,7 @@ BEGIN
 	WHILE @i > 0 BEGIN
 		
 		SET @v = @v % @ls;
-		SET @n = ASCII(SUBSTRING(@salt, @v + 1, 1));
+		SET @n = UNICODE(SUBSTRING(@salt, @v + 1, 1));
 		SET @p = @p + @n;
 		SET @j = (@n + @v + @p) % @i;
 		SET @temp = SUBSTRING(@alphabet, @j + 1, 1);
