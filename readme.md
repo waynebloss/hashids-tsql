@@ -21,6 +21,9 @@ Note: encodeId always has the default minHashLength value of 0.
 
 ## TODO
 
+- Rename encodeId to encodeInt.
+- Create a version of encodeInt called encodeIntN that generates NVARCHAR hashes.
+- Create a version of encodeInt/N that encodes 2 numbers (encodeInt2/N2), so that each table can have it's own unique set of integers.
 - Pretty-up the generator code in hashids-tsql/app.js to take options from the command line.
 - Add hashids-tsql generator options for:
     - Salt value.
@@ -29,3 +32,4 @@ Note: encodeId always has the default minHashLength value of 0.
     - Destination file.
 - Modify hashids-tsql generator to output all (currently 3) functions needed for encodeId to work
 by default, instead of just the encodeId function.
+- Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
