@@ -31,27 +31,12 @@ The basic forms of `encode` for TSQL are:
 
 In TSQL, the `encode` functions that take 1 or 2 integers will be much more useful than the one that takes a table
 because typically, you don't want to construct a table variable just to pass 1 or 2 integers into a function.
-
-### Ideas for Encode Function Naming System
-
-- encode, encodeId, encodeIdPair
-    - encode(table)
-    - encodeId(int)
-    - encodeIdPair(int, int)
-    - encodeUnicodeId(int)
-    - encodeUnicodeIdPair(1, 2)
-- encode, encodeInt, encodeIntPair
-    - encode(table)
-    - encodeInt(int)
-    - encodeIntPair(int, int)
-    - encodeUnicodeInt(int)
-    - encodeUnicodeIntPair(1, 2)
-- encodeAll, encode, encodePair
    
 ## TODO
 
-- Create encodeIntPair that encodes 2 numbers, so that each table can have it's own unique set of hashes.
-- Create a version of encodeInt called encodeIntN that generates NVARCHAR hashes.
-- Create encodeIntPairN.
+- Flip existing functions to return `nvarchar`.
+- Rename functions to follow new pattern: `encode1,2,3,Split,Table ... encode1A,2A,3A,SplitA,TableA` where the functions ending in A return `varchar`.
+- Create `encode2` which encodes 2 numbers, so that each table can have it's own unique set of hashes.
+- Create `encode-A` functions that return `varchar` instead of `nvarchar`.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
 - See other minor technical TODO items in hashids-tsql/app.js.
