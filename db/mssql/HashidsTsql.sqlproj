@@ -94,6 +94,9 @@
     <Build Include="hashids\User Defined Types\ListOfInt.sql" />
     <Build Include="hashids\User Defined Types\ListOfBigint.sql" />
     <Build Include="hashids\Functions\encodeList.sql" />
+    <Build Include="hashids\Functions\encodeListA.sql" />
+    <Build Include="hashids\Functions\encodeListBA.sql" />
+    <Build Include="hashids\Functions\encodeListB.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
