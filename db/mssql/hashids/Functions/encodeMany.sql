@@ -1,7 +1,6 @@
 ﻿CREATE FUNCTION [hashids].[encodeMany]
 (
-	@number1 int,
-	@number2 int
+	@numbers [hashids].[ListOfInt] READONLY
 )
 RETURNS nvarchar(255)
 WITH SCHEMABINDING
@@ -17,33 +16,49 @@ BEGIN
 
 	-- Working Data
 	DECLARE
-		@numbersHashInt int,
+		@numbersHashInt int = 0,
 		@lottery nchar(1),
 		@buffer nvarchar(255),
 		@last nvarchar(255),
 		@ret nvarchar(255),
-		@sepsIndex int;
+		@sepsIndex int,
+		@lastId int,
+		@count int = IsNull((SELECT COUNT(*) FROM @numbers), 0),
+		@i int = 0,
+		@id int = 0,
+		@number int;
 
-	SET @numbersHashInt = (@number1 % 100) + (@number2 % 101);
-
+	-- Calculate numbersHashInt
+	SET @lastId = IsNull((SELECT MAX([Id]) FROM @numbers), 0)
+	WHILE @id < @lastId BEGIN
+		SELECT TOP 1 @id = [Id], @number = [Value] FROM @numbers WHERE [Id] > @id
+		SET @numbersHashInt += (@number % (@i + 100));
+		SET @i += 1
+	END
+	
+	-- Choose lottery
 	SET @lottery = SUBSTRING(@alphabet, (@numbersHashInt % LEN(@alphabet)) + 1, 1);
 	SET @ret = @lottery;
 
-	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hash](@number1, @alphabet);
-	SET @ret = @ret + @last;
+	-- Encode many
+	SET @i = 0
+	SET @id = 0
+	WHILE @id < @lastId BEGIN
+		SELECT TOP 1 @id = [Id], @number = [Value] FROM @numbers WHERE [Id] > @id
 
-	-- Before adding @number2, add a separator
-	SET @sepsIndex = @number1 % UNICODE(SUBSTRING(@last, 1, 1));
-	SET @sepsIndex = @sepsIndex % LEN(@seps);
-	SET @ret = @ret + SUBSTRING(@seps, @sepsIndex + 1, 1);
+		SET @buffer = @lottery + @salt + @alphabet;
+		SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+		SET @last = [hashids].[hash](@number, @alphabet);
+		SET @ret = @ret + @last;
 
-	-- Add @number2
-	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hash](@number2, @alphabet);
-	SET @ret = @ret + @last;
+		IF (@i + 1) < @count BEGIN
+			SET @sepsIndex = @number % (UNICODE(SUBSTRING(@last, 1, 1)) + @i);
+			SET @sepsIndex = @sepsIndex % LEN(@seps);
+			SET @ret = @ret + SUBSTRING(@seps, @sepsIndex + 1, 1);
+		END
+
+		SET @i += 1
+	END
 
 	----------------------------------------------------------------------------
 	-- Enforce minHashLength
