@@ -97,6 +97,8 @@
     <Build Include="hashids\Functions\encodeListA.sql" />
     <Build Include="hashids\Functions\encodeListBA.sql" />
     <Build Include="hashids\Functions\encodeListB.sql" />
+    <Build Include="hashids\Functions\encodeSplitA.sql" />
+    <Build Include="hashids\Functions\encodeSplit.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
