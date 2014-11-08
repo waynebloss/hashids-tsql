@@ -10,12 +10,17 @@ var defv = {
   seps: 'cfhistuCFHISTU'
 };
 
+//Array.prototype.push.call(process.argv, '-d');
+//Array.prototype.push.call(process.argv, 'HashidsTsql');
+
 app
   .version(pkg.version)
   .usage('[options] [file]')
-  .option('-s, --salt          [value]', 'Salt. [random]', defv.salt)
-  .option('-m, --minHashLength [n]', 'Minimum hash length. [' + defv.minHashLength.toString() + ']', defv.minHashLength)
-  .option('-a, --alphabet      [value]', 'Alphabet. [a-z,A-Z,1-9,0]', defv.alphabet)
+  .option('-d, --database [name]', 'Database name.')
+  .option('-n, --schema [name]', 'Database schema [hashids].', 'hashids')
+  .option('-s, --salt [value]', 'Salt. [random]', defv.salt)
+  .option('-l, --minHashLength [n]', 'Minimum hash length. [' + defv.minHashLength.toString() + ']', defv.minHashLength)
+  .option('-a, --alphabet [value]', 'Alphabet. [a-z,A-Z,1-9,0]', defv.alphabet)
   .option('-e, --encodeOnly', 'Script encode function(s) only.')
   .parse(process.argv);
 
@@ -24,7 +29,7 @@ run();
 function run() {
   var data = getHashData();
   var tplFiles = getTemplates();
-  var i, output;
+  var i, output, filename;
   for (i = 0; i < tplFiles.length; i++) {
     output = swig.renderFile(tplFiles[i], data);
     pipeWriteOrAppend(output, data, i === 0);
@@ -36,6 +41,8 @@ function run() {
 function getHashData() {
   var hashids = new Hashids(app.salt, app.minHashLength, app.alphabet);
   var data = {
+    database: app.database,
+    schema: app.schema,
     startingAlphabet: app.alphabet,
     salt: hashids.salt,
     alphabet: hashids.alphabet,
@@ -53,15 +60,16 @@ function getHashData() {
  * Get the templates that should be rendered based on app options.
  */
 function getTemplates() {
-  if (app.encodeOnly)
-    return [
-      './templates/tsql/encodeId.swig'
-    ];
-  return [
+  var tpls = app.encodeOnly ? [
+    './templates/tsql/encodeId.swig'
+  ] : [
     './templates/tsql/consistentShuffle.swig',
     './templates/tsql/hash.swig',
     './templates/tsql/encodeId.swig'
   ];
+  if (app.database)
+    tpls.unshift('./templates/tsql/db.swig');
+  return tpls;
 }
 /**
  * Pipes to stdout or writes (or appends) to a file based on the given options.

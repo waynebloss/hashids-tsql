@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[hash]
+﻿CREATE FUNCTION [{{schema}}].[hash]
 (
 	@input int,
 	@alphabet varchar(255)
@@ -23,3 +23,4 @@ BEGIN
 	RETURN @hash;
 END
 GO
+
