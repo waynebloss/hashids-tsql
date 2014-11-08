@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[encodeMany]
+﻿CREATE FUNCTION [hashids].[encodeList]
 (
 	@numbers [hashids].[ListOfInt] READONLY
 )
