@@ -33,6 +33,8 @@
     <Compile Include="app.js" />
     <Content Include="package.json" />
     <Content Include="readme.md" />
+    <Content Include="templates\tsql\consistentShuffle.swig" />
+    <Content Include="templates\tsql\hash.swig" />
     <Content Include="templates\tsql\encodeId.swig" />
   </ItemGroup>
   <ItemGroup>
