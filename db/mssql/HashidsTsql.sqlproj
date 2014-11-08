@@ -82,6 +82,11 @@
     <Build Include="dbo\Stored Procedures\listComputedTestDuplicates.sql" />
     <Build Include="dbo\Stored Procedures\getComputedTestDuplicateCounts.sql" />
     <Build Include="hashids\Functions\encode2.sql" />
+    <Build Include="hashids\Functions\hashA.sql" />
+    <Build Include="hashids\Functions\encode2B.sql" />
+    <Build Include="hashids\Functions\encode1B.sql" />
+    <Build Include="hashids\Functions\encode1A.sql" />
+    <Build Include="hashids\Functions\consistentShuffleA.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
