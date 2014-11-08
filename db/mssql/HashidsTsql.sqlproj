@@ -90,6 +90,7 @@
     <Build Include="hashids\Functions\encode2A.sql" />
     <Build Include="hashids\Functions\encode1BA.sql" />
     <Build Include="hashids\Functions\encode2BA.sql" />
+    <Build Include="hashids\Functions\encodeMany.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />

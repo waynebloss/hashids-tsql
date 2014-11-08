@@ -27,15 +27,15 @@ The basic forms of `encode` for TSQL are:
 
 - `encode1(int) string`
 - `encode2(int, int) string`
+- `encodeMany(table) string`
 - `encodeSplit(string, string) string`
-- `encodeTable(table) string`
 
 In TSQL, the `encode` functions that take 1 or 2 integers will be much more useful than the one that takes a table
 because typically, you don't want to construct a table variable just to pass 1 or 2 integers into a function.
    
 ## TODO
 
-- Create `encodeTable` functions.
-- Create `encodeSplit` functions that split a string/delimiter and return the `encodeTable` result.
+- Create `encodeyMany` functions.
+- Create `encodeSplit` functions that split a string/delimiter and return the `encodeyMany` result.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
 - See other minor technical TODO items in hashids-tsql/app.js.
