@@ -35,6 +35,5 @@ because typically, you don't want to construct a table variable just to pass 1 o
    
 ## TODO
 
-- Create `encodeSplit` functions that split a string/delimiter and returns the `encodeList` result.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
 - See other minor technical TODO items in hashids-tsql/app.js.
