@@ -12,7 +12,7 @@ BEGIN
 		@alphabet nvarchar(255) = N'NxBvP0nK7QgWmejLzwdA6apRV25lkOqo8MX1ZrbyGDE3',
 		@seps nvarchar(255) = N'CuHciSFTtIfUhs',
 		@guards nvarchar(255) = N'49JY',
-		@minHashLength int = 6;
+		@minHashLength int = 0;
 
 	-- Working Data
 	DECLARE
