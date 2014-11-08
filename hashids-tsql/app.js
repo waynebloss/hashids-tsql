@@ -92,11 +92,11 @@ function getDirectoryName(data) {
  */
 function getTemplates() {
   var tpls = app.encodeOnly ? [
-    './templates/tsql/encodeInt.swig'
+    './templates/tsql/encode1.swig'
   ] : [
     './templates/tsql/consistentShuffle.swig',
     './templates/tsql/hash.swig',
-    './templates/tsql/encodeInt.swig'
+    './templates/tsql/encode1.swig'
   ];
   if (app.database)
     tpls.unshift('./templates/tsql/db.swig');

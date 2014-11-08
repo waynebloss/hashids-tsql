@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[encodeInt]
+﻿CREATE FUNCTION [hashids].[encode1]
 (
 	@number int
 )
