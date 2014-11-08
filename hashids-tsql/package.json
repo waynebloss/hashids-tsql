@@ -9,6 +9,7 @@
     "email": "waynebloss@gmail.com"
   },
   "dependencies": {
+    "commander": "^2.5.0",
     "hashids": "^1.0.1",
     "swig": "^1.4.2"
   }
