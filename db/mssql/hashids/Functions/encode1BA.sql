@@ -1,6 +1,6 @@
-﻿CREATE FUNCTION [hashids].[encode1A]
+﻿CREATE FUNCTION [hashids].[encode1BA]
 (
-	@number int
+	@number bigint
 )
 RETURNS varchar(255)
 WITH SCHEMABINDING
@@ -16,7 +16,7 @@ BEGIN
 
 	-- Working Data
 	DECLARE
-		@numbersHashInt int,
+		@numbersHashInt bigint,
 		@lottery char(1),
 		@buffer varchar(255),
 		@last varchar(255),
@@ -26,15 +26,15 @@ BEGIN
 	SET @lottery = SUBSTRING(@alphabet, (@numbersHashInt % LEN(@alphabet)) + 1, 1);
 	SET @ret = @lottery;
 	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffleA](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hashA](@number, @alphabet);
+	SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+	SET @last = [hashids].[hash](@number, @alphabet);
 	SET @ret = @ret + @last;
 	----------------------------------------------------------------------------
 	-- Enforce minHashLength
 	----------------------------------------------------------------------------
 	IF LEN(@ret) < @minHashLength BEGIN
 		DECLARE
-			@guardIndex int,
+			@guardIndex bigint,
 			@guard char(1),
 			@halfLength int,
 			@excess int;
@@ -54,7 +54,7 @@ BEGIN
 		------------------------------------------------------------------------
 		WHILE LEN(@ret) < @minHashLength BEGIN
 			SET @halfLength = IsNull(@halfLength, CAST((LEN(@alphabet) / 2) as int));
-			SET @alphabet = [hashids].[consistentShuffleA](@alphabet, @alphabet);
+			SET @alphabet = [hashids].[consistentShuffle](@alphabet, @alphabet);
 			SET @ret = SUBSTRING(@alphabet, @halfLength + 1, 255) + @ret + 
 					SUBSTRING(@alphabet, 1, @halfLength);
 			SET @excess = LEN(@ret) - @minHashLength;

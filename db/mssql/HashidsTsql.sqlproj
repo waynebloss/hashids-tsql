@@ -87,6 +87,9 @@
     <Build Include="hashids\Functions\encode1B.sql" />
     <Build Include="hashids\Functions\encode1A.sql" />
     <Build Include="hashids\Functions\consistentShuffleA.sql" />
+    <Build Include="hashids\Functions\encode2A.sql" />
+    <Build Include="hashids\Functions\encode1BA.sql" />
+    <Build Include="hashids\Functions\encode2BA.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
