@@ -15,12 +15,9 @@ var defv = {
   schema: 'hashids'
 };
 
-//Array.prototype.push.call(process.argv, '-d');
-//Array.prototype.push.call(process.argv, 'HashidsTsql');
-
 app
   .version(pkg.version)
-  .usage('[options] [file or directory/ path]')
+  .usage('[options] [file path or directory/ path]')
   .option('-d, --database [name]', 'Database name.')
   .option('-n, --schema [name]', 'Database schema [hashids].', 'hashids')
   .option('-s, --salt [value]', 'Salt. [random]', defv.salt)
