@@ -45,3 +45,4 @@ BEGIN
 	RETURN @alphabet;
 
 END
+GO
