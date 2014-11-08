@@ -68,6 +68,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="Security" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="hashids\User Defined Types\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="hashids\Functions\consistentShuffle.sql" />
@@ -90,7 +91,8 @@
     <Build Include="hashids\Functions\encode2A.sql" />
     <Build Include="hashids\Functions\encode1BA.sql" />
     <Build Include="hashids\Functions\encode2BA.sql" />
-    <Build Include="hashids\Functions\encodeMany.sql" />
+    <Build Include="hashids\User Defined Types\ListOfInt.sql" />
+    <Build Include="hashids\User Defined Types\ListOfBigint.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />
