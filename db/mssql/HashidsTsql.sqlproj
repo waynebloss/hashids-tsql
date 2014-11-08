@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="hashids\Functions\consistentShuffle.sql" />
-    <Build Include="hashids\Functions\encodeInt.sql" />
+    <Build Include="hashids\Functions\encode1.sql" />
     <Build Include="hashids\Functions\hash.sql" />
     <Build Include="dbo\Tables\ComputedTest.sql" />
     <Build Include="Security\hashids.sql" />

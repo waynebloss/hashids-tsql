@@ -36,7 +36,7 @@
     <Content Include="templates\tsql\consistentShuffle.swig" />
     <Content Include="templates\tsql\db.swig" />
     <Content Include="templates\tsql\hash.swig" />
-    <Content Include="templates\tsql\encodeInt.swig" />
+    <Content Include="templates\tsql\encode1.swig" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="templates\" />
