@@ -25,7 +25,7 @@ BEGIN
 	WHILE @i > 0 BEGIN
 		
 		SET @v = @v % @ls;
-		SET @n = UNICODE(SUBSTRING(@salt, @v + 1, 1));
+		SET @n = ASCII(SUBSTRING(@salt, @v + 1, 1));
 		SET @p = @p + @n;
 		SET @j = (@n + @v + @p) % @i;
 		SET @temp = SUBSTRING(@alphabet, @j + 1, 1);
