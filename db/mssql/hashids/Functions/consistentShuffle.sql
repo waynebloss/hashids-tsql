@@ -20,7 +20,7 @@ BEGIN
 		@p int = 0, 
 		@n int = 0,
 		@j int = 0,
-		@temp char(1);
+		@temp nchar(1);
 
 	WHILE @i > 0 BEGIN
 		

@@ -18,7 +18,7 @@ BEGIN
 	-- Working Data
 	DECLARE
 		@numbersHashInt int,
-		@lottery char(1),
+		@lottery nchar(1),
 		@buffer nvarchar(255),
 		@last nvarchar(255),
 		@ret nvarchar(255),
@@ -51,7 +51,7 @@ BEGIN
 	IF LEN(@ret) < @minHashLength BEGIN
 		DECLARE
 			@guardIndex int,
-			@guard char(1),
+			@guard nchar(1),
 			@halfLength int,
 			@excess int;
 		------------------------------------------------------------------------
