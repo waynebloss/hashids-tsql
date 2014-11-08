@@ -81,6 +81,7 @@
     <Build Include="dbo\Stored Procedures\seedComputedTestTable.sql" />
     <Build Include="dbo\Stored Procedures\listComputedTestDuplicates.sql" />
     <Build Include="dbo\Stored Procedures\getComputedTestDuplicateCounts.sql" />
+    <Build Include="hashids\Functions\encode2.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CompareSchema\ProjectToLocalhost.scmp" />

@@ -25,9 +25,10 @@ return value.
 
 The basic forms of `encode` for TSQL are:
 
-- `encode(int) string`
-- `encode(int, int) string`
-- `encode(table) string`
+- `encode1(int) string`
+- `encode2(int, int) string`
+- `encodeSplit(string, string) string`
+- `encodeTable(table) string`
 
 In TSQL, the `encode` functions that take 1 or 2 integers will be much more useful than the one that takes a table
 because typically, you don't want to construct a table variable just to pass 1 or 2 integers into a function.
