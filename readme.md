@@ -35,6 +35,10 @@ because typically, you don't want to construct a table variable just to pass 1 o
    
 ## TODO
 
+- Create `encode1B..encode2B` functions that take `bigint` instead of `int`.
 - Create `encode-A` functions that return `varchar` instead of `nvarchar`.
+- Create `encode-BA` functions that take `bigint` and return `varchar`.
+- Create `encodeTable` functions.
+- Create `encodeSplit` functions that split a string/delimiter and return the `encodeTable` result.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
 - See other minor technical TODO items in hashids-tsql/app.js.
