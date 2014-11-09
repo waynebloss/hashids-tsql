@@ -1,0 +1,3 @@
+﻿Please remove the UTF-8 BOM (Byte Order Mark) from any templates for now
+since the generator simply concatenates all swig output which would result
+in multiple BOM characters throughout the file.
