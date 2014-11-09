@@ -53,6 +53,5 @@ and returns a `varchar` (and so on).
    
 ## TODO
 
-- Add options to include missing functions in the generator.
 - Create all manner of automated tests, primarily to test against other implementations.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.

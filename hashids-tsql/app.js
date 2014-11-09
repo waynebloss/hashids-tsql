@@ -55,7 +55,10 @@ function renderToDirectory(data, tpl) {
       continue;
     data.fileName = path.join(data.directoryName, file + '.' + app.fileExt);
     output = swig.renderFile(tpl.files[i], data);
-    output = tpl.db(data) + output + tpl.go;
+    output = tpl.db(data) + 
+      tpl.go + 
+      output + 
+      tpl.go;
     fs.writeFileSync(data.fileName, output);
   }
 }
@@ -123,28 +126,45 @@ function getDirectoryName(data) {
  * Get the templates that should be rendered based on app options.
  */
 function getTemplates() {
-  var tpl = {
-    files: app.encodeOnly ? [
-      './templates/tsql/Functions/encode1.sql',
-      './templates/tsql/Functions/encode2.sql',
-      './templates/tsql/Functions/encodeList.sql',
-      './templates/tsql/Functions/encodeSplit.sql'
-    ] : [
-      './templates/tsql/schema.sql',
-      './templates/tsql/User Defined Types/ListOfBigint.sql',
-      './templates/tsql/User Defined Types/ListOfInt.sql',
-      './templates/tsql/Functions/consistentShuffle.sql',
-      './templates/tsql/Functions/hash.sql',
-      './templates/tsql/Functions/encode1.sql',
-      './templates/tsql/Functions/encode2.sql',
-      './templates/tsql/Functions/encodeList.sql',
-      './templates/tsql/Functions/encodeSplit.sql'
-    ]
+  var depFiles = [
+    './templates/tsql/schema.sql',
+    './templates/tsql/User Defined Types/ListOfBigint.sql',
+    './templates/tsql/User Defined Types/ListOfInt.sql',
+    './templates/tsql/Functions/consistentShuffle$.sql',
+    './templates/tsql/Functions/hash$.sql',
+  ],
+  encodeFiles = [
+    './templates/tsql/Functions/encode1*$.sql',
+    './templates/tsql/Functions/encode2*$.sql',
+    './templates/tsql/Functions/encodeList*$.sql',
+    './templates/tsql/Functions/encodeSplit$.sql'
+  ],
+  files = ['./templates/tsql/db.sql'],
+  replaceDollar = (app.ascii ? 'A' : ''),
+  replaceAsterisk = (app.bigint ? 'B' : ''),
+  i, file;
+
+  if (!app.encodeOnly) {
+    for (i = 0; i < depFiles.length; i++) {
+      file = depFiles[i]
+        .replace('$', replaceDollar)
+        .replace('*', replaceAsterisk);
+      files.push(file);
+    }
+  }
+
+  for (i = 0; i < encodeFiles.length; i++) {
+    file = encodeFiles[i]
+      .replace('$', replaceDollar)
+      .replace('*', replaceAsterisk);
+    files.push(file);
+  }
+
+  return {
+    files: files,
+    db: swig.compileFile('./templates/tsql/db.sql'),
+    go: swig.renderFile('./templates/tsql/go.sql')
   };
-  tpl.files.unshift('./templates/tsql/db.sql');
-  tpl.db = swig.compileFile('./templates/tsql/db.sql');
-  tpl.go = swig.renderFile('./templates/tsql/go.sql');
-  return tpl;
 }
 /**
  * Creates a new random salt value.
