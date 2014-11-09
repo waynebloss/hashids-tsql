@@ -1,3 +1,1 @@
 ﻿USE [{{database}}];
-GO
-
