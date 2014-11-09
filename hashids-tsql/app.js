@@ -53,7 +53,7 @@ function renderToDirectory(data, tpl) {
       continue;
     data.fileName = path.join(data.directoryName, file + '.' + app.fileExt);
     output = swig.renderFile(tpl.files[i], data);
-    output = tpl.db(data) + output;
+    output = tpl.db(data) + output + tpl.go;
     fs.writeFileSync(data.fileName, output);
   }
 }
@@ -62,6 +62,7 @@ function renderToFile(data, tpl) {
   var i, output;
   for (i = 0; i < tpl.files.length; i++) {
     output = swig.renderFile(tpl.files[i], data);
+    output += tpl.go;
     if (i === 0)
       fs.writeFileSync(data.fileName, output);
     else
@@ -73,6 +74,7 @@ function renderToStdout(data, tpl) {
   var i, output;
   for (i = 0; i < tpl.files.length; i++) {
     output = swig.renderFile(tpl.files[i], data);
+    output += tpl.go;
     console.log(output);  // CONSIDER: Is this the best way to pipe to stdout?
   }
 }
@@ -139,6 +141,7 @@ function getTemplates() {
   };
   tpl.files.unshift('./templates/tsql/db.sql');
   tpl.db = swig.compileFile('./templates/tsql/db.sql');
+  tpl.go = swig.renderFile('./templates/tsql/go.sql');
   return tpl;
 }
 /**
