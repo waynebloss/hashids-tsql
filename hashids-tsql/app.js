@@ -48,7 +48,7 @@ function renderToDirectory(data, tpl) {
   var i, output, file;
   mkdirp.sync(data.directoryName);
   for (i = 0; i < tpl.files.length; i++) {
-    file = path.basename(tpl.files[i], '.swig');
+    file = path.basename(tpl.files[i], '.sql');
     if (file === 'db')
       continue;
     data.fileName = path.join(data.directoryName, file + '.' + app.fileExt);
@@ -121,24 +121,24 @@ function getDirectoryName(data) {
 function getTemplates() {
   var tpl = {
     files: app.encodeOnly ? [
-      './templates/tsql/Functions/encode1.swig',
-      './templates/tsql/Functions/encode2.swig',
-      './templates/tsql/Functions/encodeList.swig',
-      './templates/tsql/Functions/encodeSplit.swig'
+      './templates/tsql/Functions/encode1.sql',
+      './templates/tsql/Functions/encode2.sql',
+      './templates/tsql/Functions/encodeList.sql',
+      './templates/tsql/Functions/encodeSplit.sql'
     ] : [
-      './templates/tsql/schema.swig',
-      './templates/tsql/User Defined Types/ListOfBigint.swig',
-      './templates/tsql/User Defined Types/ListOfInt.swig',
-      './templates/tsql/Functions/consistentShuffle.swig',
-      './templates/tsql/Functions/hash.swig',
-      './templates/tsql/Functions/encode1.swig',
-      './templates/tsql/Functions/encode2.swig',
-      './templates/tsql/Functions/encodeList.swig',
-      './templates/tsql/Functions/encodeSplit.swig'
+      './templates/tsql/schema.sql',
+      './templates/tsql/User Defined Types/ListOfBigint.sql',
+      './templates/tsql/User Defined Types/ListOfInt.sql',
+      './templates/tsql/Functions/consistentShuffle.sql',
+      './templates/tsql/Functions/hash.sql',
+      './templates/tsql/Functions/encode1.sql',
+      './templates/tsql/Functions/encode2.sql',
+      './templates/tsql/Functions/encodeList.sql',
+      './templates/tsql/Functions/encodeSplit.sql'
     ]
   };
-  tpl.files.unshift('./templates/tsql/db.swig');
-  tpl.db = swig.compileFile('./templates/tsql/db.swig');
+  tpl.files.unshift('./templates/tsql/db.sql');
+  tpl.db = swig.compileFile('./templates/tsql/db.sql');
   return tpl;
 }
 /**
