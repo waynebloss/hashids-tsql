@@ -21,8 +21,8 @@ var defv = {
 app
   .version(pkg.version)
   .usage('[options] [file or directory/ path]')
-  .option('-d, --database [name]', 'Database name.', defv.database)
-  .option('-m, --schema [name]', 'Database schema [hashids].', defv.schema)
+  .option('-d, --database [name]', 'Database name. [' + defv.database + ']', defv.database)
+  .option('-m, --schema [name]', 'Database schema. [' + defv.schema + ']', defv.schema)
   .option('-a, --ascii', 'Generate ASCII/varchar compatible function(s).')
   .option('-b, --bigint', 'Generate BIGINT compatible function(s).')
   .option('-e, --encodeOnly', 'Generate encode function(s) only.')
