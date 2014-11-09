@@ -2,9 +2,12 @@
   "name": "hashids-tsql",
   "version": "0.0.4",
   "bin":  "./bin/hashids-tsql",
-  "description": "hashids-tsql",
+  "description": "Generates TSQL hash encode functions compatible with hashids.org implementations.",
+  "homepage": "https://github.com/waynebloss/hashids-tsql",
   "main": "app.js",
+  "preferGlobal": true,
   "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/waynebloss/hashids-tsql.git"},
   "author": {
     "name": "Wayne Bloss",
     "email": "waynebloss@gmail.com"
