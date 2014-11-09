@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'hashids-tsql';
+
+require('../app.js');
