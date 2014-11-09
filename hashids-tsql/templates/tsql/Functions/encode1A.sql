@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[encode1A]
+CREATE FUNCTION [{{schema}}].[encode1A]
 (
 	@number int
 )

@@ -1,2 +1,2 @@
-﻿CREATE SCHEMA [{{schema}}]
+CREATE SCHEMA [{{schema}}]
     AUTHORIZATION [dbo];

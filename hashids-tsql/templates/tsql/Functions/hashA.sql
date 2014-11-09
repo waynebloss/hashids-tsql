@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[hashA]
+CREATE FUNCTION [{{schema}}].[hashA]
 (
 	@input int,
 	@alphabet varchar(255)

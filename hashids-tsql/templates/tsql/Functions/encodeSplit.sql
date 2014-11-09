@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[encodeSplit] (
+CREATE FUNCTION [{{schema}}].[encodeSplit] (
 	@input nvarchar(max),
 	@delim nvarchar(128) = NULL
 )

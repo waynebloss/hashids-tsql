@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[encodeListA]
+CREATE FUNCTION [{{schema}}].[encodeListA]
 (
 	@numbers [{{schema}}].[ListOfInt] READONLY
 )

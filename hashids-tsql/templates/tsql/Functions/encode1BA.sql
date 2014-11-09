@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[encode1BA]
+CREATE FUNCTION [{{schema}}].[encode1BA]
 (
 	@number bigint
 )

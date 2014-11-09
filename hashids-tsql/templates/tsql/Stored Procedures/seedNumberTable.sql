@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[seedNumberTable]
+CREATE PROCEDURE [dbo].[seedNumberTable]
 	@start int = NULL,
 	@end int = NULL,
 	@withStringConversion bit = NULL

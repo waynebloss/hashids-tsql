@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[getComputedTestDuplicateCounts]
+CREATE PROCEDURE [dbo].[getComputedTestDuplicateCounts]
 	
 AS
 BEGIN

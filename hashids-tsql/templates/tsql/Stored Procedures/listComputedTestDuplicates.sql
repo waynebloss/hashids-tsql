@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[listComputedTestDuplicates]
+CREATE PROCEDURE [dbo].[listComputedTestDuplicates]
 	
 AS
 BEGIN

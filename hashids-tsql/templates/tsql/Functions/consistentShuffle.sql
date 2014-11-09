@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [{{schema}}].[consistentShuffle]
+CREATE FUNCTION [{{schema}}].[consistentShuffle]
 (
 	@alphabet nvarchar(255),
 	@salt nvarchar(255)

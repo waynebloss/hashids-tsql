@@ -1,1 +1,1 @@
-﻿USE [{{database}}];
+USE [{{database}}];

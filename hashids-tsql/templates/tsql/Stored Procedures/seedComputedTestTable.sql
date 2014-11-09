@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[seedComputedTestTable]
+CREATE PROCEDURE [dbo].[seedComputedTestTable]
 	@start int = NULL,
 	@end int = NULL
 AS

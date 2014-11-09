@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[testComputedHashDuplicates]
+CREATE PROCEDURE [dbo].[testComputedHashDuplicates]
 	@start int = NULL,
 	@end int = NULL
 AS

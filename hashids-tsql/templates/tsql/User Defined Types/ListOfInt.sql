@@ -1,4 +1,4 @@
-﻿CREATE TYPE [{{schema}}].[ListOfInt] AS TABLE (
+CREATE TYPE [{{schema}}].[ListOfInt] AS TABLE (
     [Id]    INT IDENTITY (1, 1) NOT NULL,
     [Value] INT NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC));
