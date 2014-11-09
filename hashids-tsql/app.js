@@ -151,7 +151,7 @@ function getTemplates() {
     './templates/tsql/Stored Procedures/testComputedHashDuplicates.sql',
     './templates/tsql/test.sql'
   ],
-  files = ['./templates/tsql/db.sql'],
+  files = [path.join(__dirname, './templates/tsql/db.sql')],
   replaceDollar = (app.ascii ? 'A' : ''),
   replaceAsterisk = (app.bigint ? 'B' : ''),
   i, file;
@@ -161,6 +161,7 @@ function getTemplates() {
       file = depFiles[i]
         .replace('$', replaceDollar)
         .replace('*', replaceAsterisk);
+      file = path.join(__dirname, file);
       files.push(file);
     }
   }
@@ -169,16 +170,21 @@ function getTemplates() {
     file = encodeFiles[i]
       .replace('$', replaceDollar)
       .replace('*', replaceAsterisk);
+    file = path.join(__dirname, file);
     files.push(file);
   }
   
-  if (app.test)
-    files = files.concat(testFiles);
+  if (app.test) {
+    for (i = 0; i < testFiles.length; i++) {
+      file = path.join(__dirname, testFiles[i]);
+      files.push(file);
+    }
+  }
 
   return {
     files: files,
-    db: swig.compileFile('./templates/tsql/db.sql'),
-    go: swig.renderFile('./templates/tsql/go.sql')
+    db: swig.compileFile(path.join(__dirname, './templates/tsql/db.sql')),
+    go: swig.renderFile(path.join(__dirname, './templates/tsql/go.sql'))
   };
 }
 /**
