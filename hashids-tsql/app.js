@@ -30,6 +30,7 @@ app
   .option('-n, --minHashLength [n]', 'Minimum hash length. [' + defv.minHashLength.toString() + ']', defv.minHashLength)
   .option('-l, --alphabet [value]', 'Alphabet. [a-z,A-Z,1-9,0]', defv.alphabet)
   .option('-x, --fileExt [value]', 'Extension for output files. [' + defv.fileExt + ']', defv.fileExt)
+  .option('-t, --test', 'Generate test procedureds and tables.')
   .parse(process.argv);
 
 run();
@@ -83,7 +84,6 @@ function renderToStdout(data, tpl) {
     console.log(output);  // CONSIDER: Is this the best way to pipe to stdout?
   }
 }
-
 /**
  * Gets the working data from a hashids.js instance, based on app options.
  */
@@ -121,7 +121,6 @@ function getDirectoryName(data) {
     return data.fileName;
   return '';
 }
-
 /**
  * Get the templates that should be rendered based on app options.
  */
