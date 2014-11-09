@@ -14,6 +14,17 @@ The .NET and Javascript versions of Hashids are the primary reference projects f
 The included hashids-tsql generator creates a custom set of TSQL functions to encode values with your chosen salt
 and other options.
 
+## Quick Start
+
+The command below will generate a set of TSQL encode functions and test objects into the test.sql file.
+See the Generator Usage section below.
+
+```console
+npm install -g hashids-tsql
+
+hashids-tsql -t test.sql
+```
+
 ## Uses
 
 The primary use case can be seen in the 
@@ -25,6 +36,27 @@ hash. Therefore, `encode2` is provided, which takes 2 numbers. So, TableX can ca
 call `encode2(2, [Id])` and so on...guaranteeing that the hash for each table's [Id] column don't collide.
 
 Two more TSQL encode functions exist to hash a list of numbers. They are `encodeList` and `encodeSplit`.
+
+## Generator Usage
+
+```console
+Usage: hashids-tsql [options] [file or directory/ path]
+
+Options:
+
+  -h, --help               output usage information
+  -V, --version            output the version number
+  -d, --database [name]    Database name. [HashidsTsql]
+  -m, --schema [name]      Database schema. [hashids]
+  -a, --ascii              Generate ASCII/varchar compatible function(s).
+  -b, --bigint             Generate BIGINT compatible function(s).
+  -e, --encodeOnly         Generate encode function(s) only.
+  -s, --salt [value]       Salt. [random]
+  -n, --minHashLength [n]  Minimum hash length. [0]
+  -l, --alphabet [value]   Alphabet. [a-z,A-Z,1-9,0]
+  -x, --fileExt [value]    Extension for output files. [sql]
+  -t, --test               Generate test procedureds and tables.
+```
 
 ## Status
 
