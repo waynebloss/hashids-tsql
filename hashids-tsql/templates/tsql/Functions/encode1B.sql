@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[encode1B]
+﻿CREATE FUNCTION [{{schema}}].[encode1B]
 (
 	@number bigint
 )
@@ -26,8 +26,8 @@ BEGIN
 	SET @lottery = SUBSTRING(@alphabet, (@numbersHashInt % LEN(@alphabet)) + 1, 1);
 	SET @ret = @lottery;
 	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hash](@number, @alphabet);
+	SET @alphabet = [{{schema}}].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+	SET @last = [{{schema}}].[hash](@number, @alphabet);
 	SET @ret = @ret + @last;
 	----------------------------------------------------------------------------
 	-- Enforce minHashLength
@@ -54,7 +54,7 @@ BEGIN
 		------------------------------------------------------------------------
 		WHILE LEN(@ret) < @minHashLength BEGIN
 			SET @halfLength = IsNull(@halfLength, CAST((LEN(@alphabet) / 2) as int));
-			SET @alphabet = [hashids].[consistentShuffle](@alphabet, @alphabet);
+			SET @alphabet = [{{schema}}].[consistentShuffle](@alphabet, @alphabet);
 			SET @ret = SUBSTRING(@alphabet, @halfLength + 1, 255) + @ret + 
 					SUBSTRING(@alphabet, 1, @halfLength);
 			SET @excess = LEN(@ret) - @minHashLength;

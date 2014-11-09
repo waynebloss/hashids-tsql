@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[encodeSplitA] (
+﻿CREATE FUNCTION [{{schema}}].[encodeSplitA] (
 	@input varchar(max),
 	@delim varchar(128) = NULL
 )
@@ -9,7 +9,7 @@ BEGIN
 	SET @delim = IsNull(@delim, ',')
 	
 	DECLARE
-		@list as [hashids].[ListOfInt]
+		@list as [{{schema}}].[ListOfInt]
 	DECLARE
 		@item varchar(8000),
 		@itemList varchar(max),
@@ -35,5 +35,5 @@ BEGIN
 		INSERT INTO @list VALUES(CAST(@input as int))
 	END
 	
-	RETURN [hashids].[encodeListA](@list);
+	RETURN [{{schema}}].[encodeListA](@list);
 END

@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[encode2A]
+﻿CREATE FUNCTION [{{schema}}].[encode2A]
 (
 	@number1 int,
 	@number2 int
@@ -30,8 +30,8 @@ BEGIN
 	SET @ret = @lottery;
 
 	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffleA](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hashA](@number1, @alphabet);
+	SET @alphabet = [{{schema}}].[consistentShuffleA](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+	SET @last = [{{schema}}].[hashA](@number1, @alphabet);
 	SET @ret = @ret + @last;
 
 	-- Before adding @number2, add a separator
@@ -41,8 +41,8 @@ BEGIN
 
 	-- Add @number2
 	SET @buffer = @lottery + @salt + @alphabet;
-	SET @alphabet = [hashids].[consistentShuffleA](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-	SET @last = [hashids].[hashA](@number2, @alphabet);
+	SET @alphabet = [{{schema}}].[consistentShuffleA](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+	SET @last = [{{schema}}].[hashA](@number2, @alphabet);
 	SET @ret = @ret + @last;
 
 	----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ BEGIN
 		------------------------------------------------------------------------
 		WHILE LEN(@ret) < @minHashLength BEGIN
 			SET @halfLength = IsNull(@halfLength, CAST((LEN(@alphabet) / 2) as int));
-			SET @alphabet = [hashids].[consistentShuffleA](@alphabet, @alphabet);
+			SET @alphabet = [{{schema}}].[consistentShuffleA](@alphabet, @alphabet);
 			SET @ret = SUBSTRING(@alphabet, @halfLength + 1, 255) + @ret + 
 					SUBSTRING(@alphabet, 1, @halfLength);
 			SET @excess = LEN(@ret) - @minHashLength;

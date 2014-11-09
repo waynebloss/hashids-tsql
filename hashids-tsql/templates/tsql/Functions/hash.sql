@@ -22,5 +22,3 @@ BEGIN
 
 	RETURN @hash;
 END
-GO
-

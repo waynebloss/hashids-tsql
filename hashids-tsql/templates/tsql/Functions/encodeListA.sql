@@ -1,6 +1,6 @@
-﻿CREATE FUNCTION [hashids].[encodeListA]
+﻿CREATE FUNCTION [{{schema}}].[encodeListA]
 (
-	@numbers [hashids].[ListOfInt] READONLY
+	@numbers [{{schema}}].[ListOfInt] READONLY
 )
 RETURNS varchar(255)
 WITH SCHEMABINDING
@@ -47,8 +47,8 @@ BEGIN
 		SELECT TOP 1 @id = [Id], @number = [Value] FROM @numbers WHERE [Id] > @id
 
 		SET @buffer = @lottery + @salt + @alphabet;
-		SET @alphabet = [hashids].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
-		SET @last = [hashids].[hash](@number, @alphabet);
+		SET @alphabet = [{{schema}}].[consistentShuffle](@alphabet, SUBSTRING(@buffer, 1, LEN(@alphabet)));
+		SET @last = [{{schema}}].[hash](@number, @alphabet);
 		SET @ret = @ret + @last;
 
 		IF (@i + 1) < @count BEGIN
@@ -85,7 +85,7 @@ BEGIN
 		------------------------------------------------------------------------
 		WHILE LEN(@ret) < @minHashLength BEGIN
 			SET @halfLength = IsNull(@halfLength, CAST((LEN(@alphabet) / 2) as int));
-			SET @alphabet = [hashids].[consistentShuffle](@alphabet, @alphabet);
+			SET @alphabet = [{{schema}}].[consistentShuffle](@alphabet, @alphabet);
 			SET @ret = SUBSTRING(@alphabet, @halfLength + 1, 255) + @ret + 
 					SUBSTRING(@alphabet, 1, @halfLength);
 			SET @excess = LEN(@ret) - @minHashLength;

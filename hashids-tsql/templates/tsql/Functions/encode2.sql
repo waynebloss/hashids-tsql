@@ -81,5 +81,3 @@ BEGIN
 	END
 	RETURN @ret;
 END
-GO
-

@@ -1,4 +1,4 @@
-﻿CREATE FUNCTION [hashids].[consistentShuffleA]
+﻿CREATE FUNCTION [{{schema}}].[consistentShuffleA]
 (
 	@alphabet varchar(255),
 	@salt varchar(255)
