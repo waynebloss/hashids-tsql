@@ -4,6 +4,3 @@
     [Name]   NVARCHAR (255) NULL,
     CONSTRAINT [PK_ComputedTest] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
-
-
-

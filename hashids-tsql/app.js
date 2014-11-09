@@ -130,13 +130,23 @@ function getTemplates() {
     './templates/tsql/User Defined Types/ListOfBigint.sql',
     './templates/tsql/User Defined Types/ListOfInt.sql',
     './templates/tsql/Functions/consistentShuffle$.sql',
-    './templates/tsql/Functions/hash$.sql',
+    './templates/tsql/Functions/hash$.sql'
   ],
   encodeFiles = [
     './templates/tsql/Functions/encode1*$.sql',
     './templates/tsql/Functions/encode2*$.sql',
     './templates/tsql/Functions/encodeList*$.sql',
     './templates/tsql/Functions/encodeSplit$.sql'
+  ],
+  testFiles = [
+    './templates/tsql/Tables/ComputedTest.sql',
+    './templates/tsql/Tables/Number.sql',
+    './templates/tsql/Stored Procedures/getComputedTestDuplicateCounts.sql',
+    './templates/tsql/Stored Procedures/listComputedTestDuplicates.sql',
+    './templates/tsql/Stored Procedures/seedComputedTestTable.sql',
+    './templates/tsql/Stored Procedures/seedNumberTable.sql',
+    './templates/tsql/Stored Procedures/testComputedHashDuplicates.sql',
+    './templates/tsql/test.sql'
   ],
   files = ['./templates/tsql/db.sql'],
   replaceDollar = (app.ascii ? 'A' : ''),
@@ -158,6 +168,9 @@ function getTemplates() {
       .replace('*', replaceAsterisk);
     files.push(file);
   }
+  
+  if (app.test)
+    files = files.concat(testFiles);
 
   return {
     files: files,

@@ -53,6 +53,7 @@
     <Content Include="templates\tsql\Functions\hash.sql" />
     <Content Include="templates\tsql\Functions\hashA.sql" />
     <Content Include="templates\tsql\go.sql" />
+    <Content Include="templates\tsql\test.sql" />
     <Content Include="templates\tsql\schema.sql" />
     <Content Include="templates\tsql\Stored Procedures\getComputedTestDuplicateCounts.sql" />
     <Content Include="templates\tsql\Stored Procedures\listComputedTestDuplicates.sql" />
