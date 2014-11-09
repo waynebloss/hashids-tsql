@@ -54,6 +54,13 @@
     <Content Include="templates\tsql\Functions\hashA.sql" />
     <Content Include="templates\tsql\go.sql" />
     <Content Include="templates\tsql\schema.sql" />
+    <Content Include="templates\tsql\Stored Procedures\getComputedTestDuplicateCounts.sql" />
+    <Content Include="templates\tsql\Stored Procedures\listComputedTestDuplicates.sql" />
+    <Content Include="templates\tsql\Stored Procedures\seedComputedTestTable.sql" />
+    <Content Include="templates\tsql\Stored Procedures\seedNumberTable.sql" />
+    <Content Include="templates\tsql\Stored Procedures\testComputedHashDuplicates.sql" />
+    <Content Include="templates\tsql\Tables\ComputedTest.sql" />
+    <Content Include="templates\tsql\Tables\Number.sql" />
     <Content Include="templates\tsql\User Defined Types\ListOfBigint.sql" />
     <Content Include="templates\tsql\User Defined Types\ListOfInt.sql" />
   </ItemGroup>
@@ -61,6 +68,8 @@
     <Folder Include="templates\" />
     <Folder Include="templates\tsql\" />
     <Folder Include="templates\tsql\Functions\" />
+    <Folder Include="templates\tsql\Stored Procedures\" />
+    <Folder Include="templates\tsql\Tables\" />
     <Folder Include="templates\tsql\User Defined Types\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
