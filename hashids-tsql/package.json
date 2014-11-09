@@ -1,6 +1,6 @@
 {
   "name": "hashids-tsql",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "bin":  "./bin/hashids-tsql",
   "description": "Generates TSQL hash encode functions compatible with hashids.org implementations.",
   "homepage": "https://github.com/waynebloss/hashids-tsql",
