@@ -100,12 +100,15 @@ function getHashData() {
     minHashLength: hashids.minHashLength,
     pipe: app.args.length === 0,
     fileName: '',
-    directoryName: ''
+    directoryName: '',
+    testResults: ''
   };
   if (!data.pipe) {
     data.fileName = app.args[0];
     data.directoryName = getDirectoryName(data);
   }
+  if (app.test)
+    data.testResults = makeTestResults(hashids);
   return data;
 }
 /**
@@ -190,4 +193,20 @@ function makeSalt() {
   salt = hashids.encode(value);
   
   return salt;
+}
+
+function makeTestResults(hashids) {
+  // TODO: Change to os.EOL when swig does the same.
+  // See https://github.com/paularmstrong/swig/issues/540
+  var i, hash, nums, results = '';
+  for (i = 1; i < 101; i++) {
+    hash = hashids.encode(i);
+    results += i.toString() + '   ' + hash + '\n';
+  }
+  results += '\n';
+  for (i = 1; i < 101; i++) {
+    hash = hashids.encode(1, i);
+    results += '[1, ' + i.toString() + ']   ' + hash + '\n';
+  }
+  return results;
 }
