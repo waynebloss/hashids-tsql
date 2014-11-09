@@ -1,6 +1,7 @@
 {
   "name": "hashids-tsql",
   "version": "0.0.3",
+  "bin":  "./bin/hashids-tsql",
   "description": "hashids-tsql",
   "main": "app.js",
   "license": "MIT",
