@@ -52,6 +52,7 @@
     <Content Include="templates\tsql\Functions\encodeSplitA.swig" />
     <Content Include="templates\tsql\Functions\hash.swig" />
     <Content Include="templates\tsql\Functions\hashA.swig" />
+    <Content Include="templates\tsql\schema.swig" />
     <Content Include="templates\tsql\User Defined Types\ListOfBigint.swig" />
     <Content Include="templates\tsql\User Defined Types\ListOfInt.swig" />
   </ItemGroup>
