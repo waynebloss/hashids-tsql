@@ -33,15 +33,33 @@
     <Compile Include="app.js" />
     <Content Include="package.json" />
     <Content Include="readme.md" />
-    <Content Include="templates\tsql\consistentShuffle.swig" />
     <Content Include="templates\tsql\db.swig" />
-    <Content Include="templates\tsql\encode2.swig" />
-    <Content Include="templates\tsql\hash.swig" />
-    <Content Include="templates\tsql\encode1.swig" />
+    <Content Include="templates\tsql\Functions\consistentShuffle.swig" />
+    <Content Include="templates\tsql\Functions\consistentShuffleA.swig" />
+    <Content Include="templates\tsql\Functions\encode1.swig" />
+    <Content Include="templates\tsql\Functions\encode1A.swig" />
+    <Content Include="templates\tsql\Functions\encode1B.swig" />
+    <Content Include="templates\tsql\Functions\encode1BA.swig" />
+    <Content Include="templates\tsql\Functions\encode2.swig" />
+    <Content Include="templates\tsql\Functions\encode2A.swig" />
+    <Content Include="templates\tsql\Functions\encode2B.swig" />
+    <Content Include="templates\tsql\Functions\encode2BA.swig" />
+    <Content Include="templates\tsql\Functions\encodeList.swig" />
+    <Content Include="templates\tsql\Functions\encodeListA.swig" />
+    <Content Include="templates\tsql\Functions\encodeListB.swig" />
+    <Content Include="templates\tsql\Functions\encodeListBA.swig" />
+    <Content Include="templates\tsql\Functions\encodeSplit.swig" />
+    <Content Include="templates\tsql\Functions\encodeSplitA.swig" />
+    <Content Include="templates\tsql\Functions\hash.swig" />
+    <Content Include="templates\tsql\Functions\hashA.swig" />
+    <Content Include="templates\tsql\User Defined Types\ListOfBigint.swig" />
+    <Content Include="templates\tsql\User Defined Types\ListOfInt.swig" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="templates\" />
     <Folder Include="templates\tsql\" />
+    <Folder Include="templates\tsql\Functions\" />
+    <Folder Include="templates\tsql\User Defined Types\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
 </Project>
