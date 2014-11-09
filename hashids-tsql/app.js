@@ -20,13 +20,15 @@ var defv = {
 
 app
   .version(pkg.version)
-  .usage('[options] [file path or directory/ path]')
+  .usage('[options] [file or directory/ path]')
   .option('-d, --database [name]', 'Database name.', defv.database)
-  .option('-n, --schema [name]', 'Database schema [hashids].', defv.schema)
+  .option('-m, --schema [name]', 'Database schema [hashids].', defv.schema)
+  .option('-a, --ascii', 'Generate ASCII/varchar compatible function(s).')
+  .option('-b, --bigint', 'Generate BIGINT compatible function(s).')
+  .option('-e, --encodeOnly', 'Generate encode function(s) only.')
   .option('-s, --salt [value]', 'Salt. [random]', defv.salt)
-  .option('-l, --minHashLength [n]', 'Minimum hash length. [' + defv.minHashLength.toString() + ']', defv.minHashLength)
-  .option('-a, --alphabet [value]', 'Alphabet. [a-z,A-Z,1-9,0]', defv.alphabet)
-  .option('-e, --encodeOnly', 'Script encode function(s) only.')
+  .option('-n, --minHashLength [n]', 'Minimum hash length. [' + defv.minHashLength.toString() + ']', defv.minHashLength)
+  .option('-l, --alphabet [value]', 'Alphabet. [a-z,A-Z,1-9,0]', defv.alphabet)
   .option('-x, --fileExt [value]', 'Extension for output files. [' + defv.fileExt + ']', defv.fileExt)
   .parse(process.argv);
 
