@@ -17,7 +17,8 @@ and other options.
 ## Quick Start
 
 The command below will generate a set of TSQL encode functions and test objects into the test.sql file.
-See the Generator Usage section below.
+See the Generator Usage section below. (NOTE: `npm install -g` will _actually_ work when I figure out
+how to release an npm package that publishes a global command/bin script!)
 
 ```console
 npm install -g hashids-tsql
@@ -85,6 +86,7 @@ and returns a `varchar` (and so on).
    
 ## TODO
 
+- Figure out how to publish an npm that provides a new global command/bin script.
 - Replace No-UTF8-BOM-in-templates.txt note with usage of something like "strip-bom" in app.js
 - Create all manner of automated tests, primarily to test against other implementations.
 - Create TSQL functions for decoding and integrate them into the hashids-tsql generator.
