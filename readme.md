@@ -34,7 +34,9 @@ npm install -g hashids-tsql
 hashids-tsql -t test.sql
 ```
 
-![Test Results](https://raw.github.com/waynebloss/hashids-tsql/master/readme-assets/qtest-20141109.png "Results")
+### Results
+
+![Test Results](https://raw.github.com/waynebloss/hashids-tsql/master/readme-assets/qtest-20141109.png)
 
 ## What is it?
 
