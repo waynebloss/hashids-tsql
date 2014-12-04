@@ -18,6 +18,8 @@ var defv = {
   fileExt: 'sql'
 };
 
+swig.setDefaults({ allowCR: true });
+
 app
   .version(pkg.version)
   .usage('[options] [file or directory/ path]')
