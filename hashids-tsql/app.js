@@ -99,7 +99,7 @@ function getHashData() {
     alphabet: hashids.alphabet,
     seps: hashids.seps,
     guards: hashids.guards,
-    minHashLength: hashids.minHashLength,
+    minHashLength: app.minHashLength,
     pipe: app.args.length === 0,
     fileName: '',
     directoryName: '',
