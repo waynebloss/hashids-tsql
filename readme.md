@@ -90,7 +90,7 @@ The primary use case for a TSQL hashid encoding function can be summarized in th
 [ComputedTest table](https://github.com/waynebloss/hashids-tsql/blob/master/db/mssql/dbo/Tables/ComputedTest.sql)
 where the table's `HashId` uses `encode1` to hash the `Id` column as part of the atomic INSERT of a record.
 
-However, calling `encode1` or `encode2` as part of a stored procedure might be preferable in order to avoid costly recomputes.
+However, calling `encode1` or `encode2` as part of a stored procedure that INSERTs might be preferable in order to avoid costly recomputes.
 
 As a _persisted_ computed column, `HashId` [can be indexed](http://msdn.microsoft.com/en-us/library/ms189292(v=sql.100).aspx).
 **BEWARE** that [some situations can result in extremely expensive queries if you add a hashid column](https://github.com/waynebloss/hashids-tsql/issues/4) so work must be done in order to avoid recomputes.
