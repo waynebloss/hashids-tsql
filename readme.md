@@ -86,12 +86,14 @@ in this repository contains a full set of pre-generated functions to test with.
 
 ## Use Cases
 
-The primary use case for a TSQL hashid encoding function can be seen in the 
+The primary use case for a TSQL hashid encoding function can be summarized in the 
 [ComputedTest table](https://github.com/waynebloss/hashids-tsql/blob/master/db/mssql/dbo/Tables/ComputedTest.sql)
-where the table's `HashId` uses `encode1` to hash the `Id` column _once_ as part of the atomic INSERT of a record.
+where the table's `HashId` uses `encode1` to hash the `Id` column as part of the atomic INSERT of a record.
 
-As a _persisted_ computed column, `HashId` [can also be indexed](http://msdn.microsoft.com/en-us/library/ms189292(v=sql.100).aspx).
-However, [some situations can result in extremely expensive queries if you add a hashid column](https://github.com/waynebloss/hashids-tsql/issues/4) so be careful to avoid recomputes.
+However, calling `encode1` or `encode2` as part of a stored procedure might be preferable in order to avoid costly recomputes.
+
+As a _persisted_ computed column, `HashId` [can be indexed](http://msdn.microsoft.com/en-us/library/ms189292(v=sql.100).aspx).
+**BEWARE** that [some situations can result in extremely expensive queries if you add a hashid column](https://github.com/waynebloss/hashids-tsql/issues/4) so work must be done in order to avoid recomputes.
 
 If every table were to use the same `encode1` function, then any row in any table with `Id = 1` would have the same 
 hash. Therefore, `encode2` is provided, which takes 2 numbers. So, TableX can call `encode2(1, [Id])` and TableY can 
