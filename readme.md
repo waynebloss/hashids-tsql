@@ -91,6 +91,7 @@ The primary use case for a TSQL hashid encoding function can be seen in the
 where the table's `HashId` uses `encode1` to hash the `Id` column _once_ as part of the atomic INSERT of a record.
 
 As a _persisted_ computed column, `HashId` [can also be indexed](http://msdn.microsoft.com/en-us/library/ms189292(v=sql.100).aspx).
+However, [some situations can result in extremely expensive queries if you add a hashid column](https://github.com/waynebloss/hashids-tsql/issues/4) so be careful to avoid recomputes.
 
 If every table were to use the same `encode1` function, then any row in any table with `Id = 1` would have the same 
 hash. Therefore, `encode2` is provided, which takes 2 numbers. So, TableX can call `encode2(1, [Id])` and TableY can 
